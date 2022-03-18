@@ -1,0 +1,52 @@
+
+An unexpected exception has been detected in native code outside the VM.
+Unexpected Signal : EXCEPTION_ACCESS_VIOLATION (0xc0000005) occurred at PC=0x57C2C420
+Function=[Unknown.]
+Library=(N/A)
+
+NOTE: We are unable to locate the function name symbol for the error
+      just occurred. Please refer to release documentation for possible
+      reason and solutions.
+
+
+Current Java thread:
+	at java.lang.Shutdown.<clinit>(Shutdown.java:62)
+
+Dynamic libraries:
+0x00400000 - 0x0040B000 	C:\j2sdk1.4.2_08\jre\bin\java.exe
+0x7C900000 - 0x7C9B0000 	C:\WINDOWS\system32\ntdll.dll
+0x7C800000 - 0x7C8F4000 	C:\WINDOWS\system32\kernel32.dll
+0x77DD0000 - 0x77E6B000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77E70000 - 0x77F01000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77C10000 - 0x77C68000 	C:\WINDOWS\system32\MSVCRT.dll
+0x08000000 - 0x08138000 	C:\j2sdk1.4.2_08\jre\bin\client\jvm.dll
+0x77D40000 - 0x77DD0000 	C:\WINDOWS\system32\USER32.dll
+0x77F10000 - 0x77F57000 	C:\WINDOWS\system32\GDI32.dll
+0x76B40000 - 0x76B6D000 	C:\WINDOWS\system32\WINMM.dll
+0x10000000 - 0x10007000 	C:\j2sdk1.4.2_08\jre\bin\hpi.dll
+0x00390000 - 0x0039E000 	C:\j2sdk1.4.2_08\jre\bin\verify.dll
+0x003B0000 - 0x003C9000 	C:\j2sdk1.4.2_08\jre\bin\java.dll
+0x003D0000 - 0x003DE000 	C:\j2sdk1.4.2_08\jre\bin\zip.dll
+0x76C90000 - 0x76CB8000 	C:\WINDOWS\system32\imagehlp.dll
+0x59A60000 - 0x59B01000 	C:\WINDOWS\system32\DBGHELP.dll
+0x77C00000 - 0x77C08000 	C:\WINDOWS\system32\VERSION.dll
+0x76BF0000 - 0x76BFB000 	C:\WINDOWS\system32\PSAPI.DLL
+
+Heap at VM Abort:
+Heap
+ def new generation   total 576K, used 114K [0x10010000, 0x100b0000, 0x104f0000)
+  eden space 512K,  22% used [0x10010000, 0x1002cb88, 0x10090000)
+  from space 64K,   0% used [0x10090000, 0x10090000, 0x100a0000)
+  to   space 64K,   0% used [0x100a0000, 0x100a0000, 0x100b0000)
+ tenured generation   total 1408K, used 0K [0x104f0000, 0x10650000, 0x14010000)
+   the space 1408K,   0% used [0x104f0000, 0x104f0000, 0x104f0200, 0x10650000)
+ compacting perm gen  total 4096K, used 995K [0x14010000, 0x14410000, 0x18010000)
+   the space 4096K,  24% used [0x14010000, 0x14108f08, 0x14109000, 0x14410000)
+
+Local Time = Sat Feb 04 11:34:26 2006
+Elapsed Time = 0
+#
+# The exception above was detected in native code outside the VM
+#
+# Java VM: Java HotSpot(TM) Client VM (1.4.2_08-b03 mixed mode)
+#
