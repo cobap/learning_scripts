@@ -1,0 +1,2 @@
+# https://machinelearningmastery.com/grid-search-hyperparameters-deep-learning-models-python-keras/?utm_source=drip&utm_medium=email&utm_campaign=+Keras+deep+learning+models+with+Scikit-Learn+in+Python&utm_content=+Keras+deep+learning+models+with+Scikit-Learn+in+Python
+# https://machinelearningmastery.com/use-keras-deep-learning-models-scikit-learn-python/?utm_source=drip&utm_medium=email&utm_campaign=+Keras+deep+learning+models+with+Scikit-Learn+in+Python&utm_content=+Keras+deep+learning+models+with+Scikit-Learn+in+Python

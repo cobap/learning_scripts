@@ -1,6 +1,9 @@
 #%%
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Dropout
+
+# Optimizers
+from keras.optimizers import SGD
 
 # Callbacks
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping, CSVLogger
@@ -53,6 +56,11 @@ cb_csvlogger = CSVLogger(
 model = Sequential(name='modelo_keras')
 model.add(Dense(62, input_shape=(784, ), activation='relu'))
 model.add(Dense(62, activation='relu'))
+
+# Se quisermos diminuir o overfitting durante treinamento, podemos adicionar um dropout
+# Colocamos como parametro 20% dos neurônios desse layer
+model.add(Dropout(0.2))
+
 model.add(Dense(10, activation='relu'))
 model.compile(optimizer='adam', loss='categorial_crossentropy')
 
@@ -61,9 +69,19 @@ print('Modelo Keras')
 model.summary()
 
 
+# Keras possui dentro do SGD a implementação do learning-rate-schedule
+# Podemos deixar o learning rate maior (0.001, para 0.1, mas aumentamos o momentum e colocamos um decay)
+sgd = SGD(lr=0.1, momentum=0.9, decay=0.0001, nesterov=False)
+# model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Aqui definimos os callbacks
-model.fit(X, y, epochs=100, validation_data=(X, y), callbacks=[cb_checkpoint, cb_reducelr, cb_earlystop, cb_csvlogger])
+historico = model.fit(X, y, epochs=100, validation_data=(X, y), callbacks=[cb_checkpoint, cb_reducelr, cb_earlystop, cb_csvlogger])
+
+# Aqui quando pegamos o retorno do fit, temos o histórico do modelo
+print(historico.history.keys())
+
+
 #%%
 

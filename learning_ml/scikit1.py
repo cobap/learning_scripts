@@ -39,3 +39,43 @@ data = sales_data[cols]
 target = sales_data['Opportunity Result']
 
 from sklearn.model_selection import train_test_split
+
+
+# %%
+
+# Learning about Pipeline
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
+from sklearn.ensemble import RandomForestClassifier
+
+# Definimos o pipeline, sempre como uma sequência de eventos. Imputer -> StandardScaler -> RandomForest
+pipe = Pipeline([('imputer', SimpleImputer()),('scaler', StandardScaler()), ('RF', RandomForestClassifier())])
+
+# Rodamos o fit no pipeline, igual fariamos com um modelo
+pipe.fit(X_train, y_train)
+pipe.predict(X_test)
+pipe.fit_predict(X_train, y_train)
+
+
+# Podemos criar um próprio estimator
+from sklearn.base import BaseEstimator, TransformerMixin
+
+# Criamos uma classe customizada do estimador
+class AgeImputer(BaseEstimator, TransformerMixin):
+    
+    # Que tem o método init com o parametro que queremos receber
+    def __init__(self, max_age):
+        print('Initialising transformer...')
+        self.max_age = max_age
+        
+    # O que acontece com o fit
+    def fit(self, X, y = None):
+        self.mean_age = round(X['Age'].mean())
+        return self
+    
+    # O que fazemos com o transform
+    def transform(self, X):
+        print ('replacing impossible age values')
+        # X.loc[(X[‘age’] > self.max_age) |  (X[‘age’] < 0), “age”] = self.mean_age
+        return X
